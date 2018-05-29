@@ -13,25 +13,25 @@
     
 <script type="text/javascript">
     	 function submit(){
-    	    var email=document.getElementById("email").value;
+    	    var email=document.getElementById("email").value;// get the value enterned in mail 
     	    //console.log(email);
     		var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET", "https://vaiotibackend.herokuapp.com/profile/"+email);
+			xmlhttp.open("GET", "https://vaiotibackend.herokuapp.com/profile/"+email); // creating api by appendin g email entered
 			xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 			xmlhttp.send();
 
-			xmlhttp.onreadystatechange = function(){
-				if(xmlhttp.readyState == 4){
+			xmlhttp.onreadystatechange = function()
+			{
+				if(xmlhttp.readyState == 4)
+				{
 					var res = JSON.parse(xmlhttp.responseText);
-					console.log(res);
-					if(res.email==email){
-					document.getElementById("message").innerHTML="registered email address";
+					//console.log(res);
+					if(res.email==email)
+					{
+					    document.getElementById("message").innerHTML="registered email address";// if jason found then message is popped 
 						alert("present");
 					}
-					else{
-						alert("not present");
-						document.getElementById("message").innerHTML="email address not registered";
-				    }
+				    
 				}
 			}
 		}	
