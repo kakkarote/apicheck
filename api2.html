@@ -9,17 +9,18 @@
 <form>
 	name:<input type="text" name="name" value=" " >
 	<br>
-	email:<input type="email" name="email"id="email" value=" " onfocusout="verify()">
+	email:<input type="email" name="email"id="email" value=" " onfocusout="verify('submit');">
 	<span id="message" > </span>
 	<br>
-	address: <input type="text" name="address" value="" onfocusin="buttonstatus()">
+	address: <input type="text" name="address" value="" >
 	<br>
-    <input type="button" name="submit" value="submit" disabled=" true">
+   <button id="submit" disabled>submit</button>
+   
  </form>   
 <script type="text/javascript">
-	var button_status ;
+	//var button_status ;<input type="button" name="submit" id="submit" value="submit" Enabled= "false" >
 	//buttonobject.disabled=true;
-    	 function verify()
+    	 function verify(target)
     	 {
     	    var email=document.getElementById("email").value;// get the value enterned in mail 
     	    //console.log(email);
@@ -38,7 +39,9 @@
 					{
 					    document.getElementById("message").innerHTML="registered email address";// if jason found then message is popped 
 						alert("present");
-						button_status=false;
+						document.getElementById(target).disabled = false;
+						//document.getElementbyId("submit").disabled=false;
+						//button_status=false;
 					    // document.getElementById("submit").setAttribute("disabled", "false");s
 					}
 				    
@@ -46,12 +49,7 @@
 			}
 			
 		}
-		function buttonstatus()
-						{
 		
-						document.getelementbyid("submit").disabled=button_status;	
-
-						}
 			
 </script>
 </body>
